@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication1.Models.SubMoviesCategories>
+
+@{
+    ViewData["Title"] = "SubCategoriesHome";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center" style="margin:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Sub Categories</h2>
+
+<p>
+    <div style="text-align:end">
+        <a asp-controller="Categories" asp-action="AddSubCategory" class="btn d-block mr-0 ml-auto embed-responsive-item" style="letter-spacing:20px; background-color:mediumpurple;">Add New SubCategory</a>
+    </div>
+</p>
+
+<center style="margin: 4%; text-align-last: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <table class="table table-responsive-md table-bordered table-hover table-striped" style="width:80%;">
+        <thead>
+            <tr>
+                <th>
+                    <strong>SubCategory ID</strong>
+                </th>
+                <th>
+                    <strong>SubCategory Name</strong>
+                </th>
+                <th>
+                    <strong>Action</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.subCategoryID)
+                    </td>
+                    <td>
+                        <strong>@Html.DisplayFor(modelItem => item.subCategoryName)</strong>
+                    </td>
+                    <td>
+                        <div class="m-n1">
+                            <a asp-controller="Categories" asp-action="SubCategoryEdit" asp-route-id=@item.subCategoryID class="btn" style="background-color:darkkhaki;">Edit</a>
+                            <a asp-controller="Categories" asp-action="SubCategoryDelete" asp-route-id=@item.subCategoryID class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>

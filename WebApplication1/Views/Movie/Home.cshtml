@@ -1,0 +1,142 @@
+﻿@model IEnumerable<WebApplication1.Models.Movies>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- ===== Mobile viewport optimized ===== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+
+    <!-- ===== Google Fonts ===== -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+
+    <!-- ===== CSS links ===== -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/jquery.mmenu.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/responsive.css">
+</head>
+
+<body>
+    <!-- =============== START OF PAGE HEADER =============== -->
+    <section class="counter bg-main-gradient ptb50 text-center" style="margin-top:10px">
+        <div class="container">
+            <div class="row">
+                <!-- 1st Count up item -->
+                <div class="col-md-4 col-sm-12">
+                    <span class="counter-item" data-from="0" data-to="@Model.Count()">0</span>
+                    <h4>Movies</h4>
+                </div>
+
+                <!-- 2nd Count up item -->
+                <div class="col-md-4 col-sm-12">
+                    <span class="counter-item" data-from="0" data-to="">0</span>
+                    <h4>TV Shows</h4>
+                </div>
+
+                <!-- 3rd Count up item -->
+                <div class="col-md-4 col-sm-12">
+                    <span class="counter-item" data-from="0" data-to="@ViewBag.counteruser">0</span>
+                    <h4>Users</h4>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    @if (Model.Count() > 0)
+    {
+        <!-- =============== START OF WRAPPER =============== -->
+        <div>
+            <!-- =============== START OF MAIN =============== -->
+            <main class="ptb100">
+                <div class="container">
+                    <!-- Start of Movie List -->
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <!-- Movie List Item -->
+                            <div class="col-lg-4 col-md-10">
+                                <a href="../Movie/MovieDetails/@item.movieID">
+                                    <div class="movie-box-4 mb30">
+                                        <div class="listing-container">
+                                            <!-- Movie List Image -->
+                                            <div class="listing-image">
+                                                <!-- Rating -->
+                                                <div class="stars">
+                                                    <div class="rating">
+
+                                                        <span style="font-weight:bold;font-family:'Times New Roman', Times, serif">@item.movieRating/10</span><br />
+
+                                                        @{
+                                                            float starsCounter = item.movieRating * 5 / 10;
+
+                                                            for (int i = 0; i < (int)starsCounter; i++)
+                                                            {
+                                                                <i class="fa fa-star"></i>
+                                                            }
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                                <!-- Image -->
+                                                <img src="@item.moviePoster" alt="Alternate Text" />
+                                            </div>
+
+                                            <!-- Movie List Content -->
+                                            <div class="listing-content">
+                                                <div class="inner">
+                                                    <h6 style="font-family:'Times New Roman', Times, serif" class="title">@item.movieName</h6>
+                                                    @if (item.movieStory.Length > 500)
+                                                    {
+                                                        <h6 style="font-size:small; font-family:'AbdoLine ☞'">@item.movieStory</h6>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h6 style="font-family:'AbdoLine ☞'">@item.movieStory</h6>
+                                                    }
+                                                    <strong class="btn btn-main btn-effect">Watch</strong>
+
+                                                    @if (item.subMovieGenres != null)
+                                                    {
+                                                        <h5>@item.movieGenres.categoryName @string.Concat("-") @item.subMovieGenres.subCategoryName</h5>
+                                                    }
+                                                    else if (item.movieGenres != null)
+                                                    {
+                                                        <h5>@item.movieGenres.categoryName</h5>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </main>
+            <!-- =============== END OF MAIN =============== -->
+
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h3>Sorry, there's no movies yet</h3>
+        </div>
+    }
+
+</body>
+
+</html>

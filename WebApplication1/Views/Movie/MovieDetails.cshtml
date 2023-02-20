@@ -1,0 +1,183 @@
+﻿@model WebApplication1.Models.Movies
+
+@{
+    ViewData["Title"] = "MovieDetails";
+    Layout = "~/Views/Shared/_MovieLayout.cshtml";
+}
+
+<html lang="en">
+
+<body>
+    <div class="embed-responsive-item">
+        @if (Model.movieName == "Avengers - Endgame")
+        {
+            <video autoplay muted loop style="width:100%">
+                <source src="~/Upload Files/Avengers - EndgameTrailer.mp4" type="video/mp4">
+            </video>
+        }
+        else if (Model.movieName == "Inception")
+        {
+            <video autoplay muted loop style="width:100%">
+                <source src="~/Upload Files/InceptionTrailer.mp4" type="video/mp4">
+            </video>
+        }
+        else if (Model.movieName == "Joker")
+        {
+            <video autoplay muted loop style="width:100%">
+                <source src="~/Upload Files/JokerTrailer.mp4" type="video/mp4">
+            </video>
+        }
+        else if (Model.movieName == "Moon Knight")
+        {
+            <video autoplay muted loop style="width:100%">
+                <source src="~/Upload Files/MoonKnightTrailer.mp4" type="video/mp4">
+            </video>
+        }
+        else
+        {
+            <video autoplay muted loop style="width:100%">
+                <source src="~/Upload Files/CINEMA.mp4" type="video/mp4">
+            </video>
+        }
+
+
+    </div>
+    <!-- =============== START OF WRAPPER =============== -->
+    <div class="wrapper">
+        <!-- =============== END OF MOVIE DETAIL INTRO =============== -->
+        <!-- =============== START OF MOVIE DETAIL INTRO 2 =============== -->
+        <section class="movie-detail-intro2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="movie-poster">
+                            <img style="border-radius:10px" src="@Model.moviePoster" width="300" height="444" alt="Alternate Text">
+
+                            @*<a href="" class="play-video">
+                                    <i class="fa fa-play"></i>
+                                </a>*@
+                        </div>
+
+
+                        <div class="movie-details">
+                            <h3 style="font-family:'Times New Roman', Times, serif" class="title">@Model.movieName</h3>
+
+                            <ul class="movie-subtext">
+                                <li>
+                                    @Model.movieGenres.categoryName
+                                @if (Model.subMovieGenres != null)
+                                {
+                                    <span>-</span>
+                                    @Model.subMovieGenres.subCategoryName
+                                }
+                            </li>
+                            <li>@Model.movieReleaseDate.ToShortDateString()</li>
+                            <li class="stars rating">
+                                @{
+                                    float starsCounter = Model.movieRating * 5 / 10;
+
+                                    for (int i = 0; i < (int)starsCounter; i++)
+                                    {
+                                        <i class="fa fa-star"></i>
+                                    }
+                                }
+                            </li>
+                        </ul>
+
+
+                        <a href="@Model.movieTrailer" class="btn btn-main btn-effect" target="_blank">trailer</a>
+
+
+                        @*<a href="#" class="btn btn-main btn-effect">watch later</a>*@
+                        <a href="#" class="btn rate-movie"><i class="icon-heart"></i></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =============== START OF MOVIE DETAIL MAIN SECTION =============== -->
+    <section class="movie-detail-main ptb100">
+        <div class="container">
+
+            <div class="row">
+                <!-- Start of Movie Main -->
+                <div class="col-lg-8 col-sm-12">
+                    <div class="inner pr50">
+
+                        <!-- Storyline -->
+                        <div class="storyline">
+                            <h3 class="title">Storyline</h3>
+
+                            <p style="font-family:'AbdoLine ☞'">@Model.movieStory</p>
+                        </div>
+
+                        <!-- Media -->
+                        <div class="movie-media mt50">
+                            <h3 class="title"> Photos & Videos</h3>
+
+                            <ul class="image-gallery isotope">
+                                <li class="element">
+                                    <a href="@Model.moviePoster">
+                                        <img src="@Model.moviePoster" class="img-responsive" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End of Movie Main -->
+                <!-- Start of Sidebar -->
+                <div class="col-lg-4 col-sm-12">
+                    <div class="sidebar">
+
+                        <!-- Start of Details Widget -->
+                        <aside class="widget widget-movie-details">
+                            <h3 class="title">Details</h3>
+
+                            <ul>
+                                <li><strong>Release date: </strong>@Model.movieReleaseDate.ToShortDateString()</li>
+                                <li><strong>Director: </strong><a href="#">N\A</a></li>
+                                <li><strong>Budget: </strong>N\A</li>
+                                <li><strong>Country: </strong>USA</li>
+                                <li><strong>Language: </strong>English</li>
+                                <li><strong>Production Co: </strong><a href="#">Marvel</a></li>
+                            </ul>
+                        </aside>
+                        <!-- End of Details Widget -->
+                        <!-- Start of Details Widget -->
+                        <aside class="widget widget-movie-cast">
+                            <h3 class="title">Cast</h3>
+
+                            <ul class="cast-wrapper">
+                                <li>
+                                    <a href="celebrity-detail.html">
+                                        <span class="circle-img">
+                                            <img src="assets/images/celebrities/celebrity1.jpg" alt="">
+                                        </span>
+                                        <h6 class="name">Bryan Doe</h6>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <a href="celebrities-list.html" class="btn btn-main btn-effect mt20">view all</a>
+
+                        </aside>
+                        <!-- End of Details Widget -->
+
+                    </div>
+                </div>
+                <!-- End of Sidebar -->
+            </div>
+
+        </div>
+    </section>
+    <!-- =============== END OF MOVIE DETAIL MAIN SECTION =============== -->
+</div>
+<!-- =============== END OF WRAPPER =============== -->
+</body>
+
+</html>

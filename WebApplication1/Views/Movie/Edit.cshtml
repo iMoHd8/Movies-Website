@@ -1,0 +1,106 @@
+﻿@model WebApplication1.Models.Movies
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section style="display: flex; justify-content: center; margin: 2%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <center class="col-md-4">
+        <h1>Edit MOVIE Info</h1>
+
+        <h4>Details</h4>
+        <hr />
+        
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="movieID" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="movieName" class="control-label">Movie Title</label>
+                <input asp-for="movieName" class="form-control" />
+                <span asp-validation-for="movieName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="moviePoster" class="control-label">Movie Poster URL</label>
+                <input asp-for="moviePoster" class="form-control" />
+                <span asp-validation-for="moviePoster" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="movieRating" class="control-label">Movie Rating</label>
+                <input asp-for="movieRating" class="form-control" />
+                <span asp-validation-for="movieRating" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="movieReleaseDate" class="control-label">Movie Release Date</label>
+                <input asp-for="movieReleaseDate" class="form-control" />
+                <span asp-validation-for="movieReleaseDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <label asp-for="movieCategoryID" class="control-label">Movie Genre</label>
+                    <select asp-for="movieCategoryID" class="col-md-10" required>
+                        <option value="@null">Select...</option>
+                        @foreach (MoviesCategories item in ViewBag.Categories)
+                        {
+                            <option value="@item.categoryID">@item.categoryName</option>
+                        }
+                    </select>
+                    <div class="col-md-1">
+                        <a class="btn btn-link" href="../Categories/AddCategory">Add New</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <label asp-for="subMovieCategoryID" class="control-label">Submovie Genre</label>
+                    <select asp-for="subMovieCategoryID" class="col-md-10" required>
+                        <option value="@null">Select...</option>
+                        @foreach (SubMoviesCategories item in ViewBag.SubCategories)
+                        {
+                            <option value="@item.subCategoryID">@item.subCategoryName</option>
+                        }
+                    </select>
+                    <div class="col-md-1">
+                        <a class="btn btn-link" href="../Categories/AddSubCategory">Add New</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="movieGuide" class="control-label">Family Guide</label>
+                <select class="form-group">
+                    @foreach (var item in Enum.GetValues(typeof(MoviesGuide)))
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="movieTrailer" class="control-label">Trailer URL</label>
+                <input asp-for="movieTrailer" class="form-control" />
+                <span asp-validation-for="movieTrailer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="movieStory" class="control-label">Movie Story</label>
+                <textarea class="form-text" asp-for="@Model.movieStory"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <div>
+            <a href="../MovieDetails/@Model.movieID">Back to The Movie</a>
+        </div>
+
+    </center>
+</section>

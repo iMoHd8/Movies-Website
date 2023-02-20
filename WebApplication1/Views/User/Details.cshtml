@@ -1,0 +1,44 @@
+﻿@model WebApplication1.Models.Member
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center" style="margin:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Details</h2>
+
+<h3 style="margin-left: 26%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">User</h3>
+<hr />
+
+<div style="display: flex; justify-content: center; margin: 2%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayName("ID: ")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.userId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayName("User Name: ")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayName("Password: ")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.password)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayName("E-Mail: ")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.email)
+            </dd>
+        </dl>
+
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

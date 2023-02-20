@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.SubMoviesCategories
+
+@{
+    ViewData["Title"] = "SubCategoryEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center" style="margin:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Subcategory Edit Info</h2>
+
+<h3 style="margin-left: 35%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Subcategory</h3>
+<hr />
+
+<section style="display: flex; justify-content: center; margin: 2%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <div class="col-md-4">
+        <form asp-action="SubCategoryEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="subCategoryID" class="form-control" readonly />
+
+            <div class="form-group">
+                <label asp-for="subCategoryName" class="control-label">Subcategory Name</label>
+                <input asp-for="subCategoryName" class="form-control" />
+                <span asp-validation-for="subCategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn" style="background-color:mediumpurple" />
+            </div>
+        </form>
+        <div>
+            <a asp-action="SubCategoriesHome">Back to List</a>
+        </div>
+    </div>
+</section>
+

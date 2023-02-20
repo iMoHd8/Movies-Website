@@ -1,0 +1,47 @@
+﻿@model WebApplication1.Models.Movies
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center" style="margin:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Delete User</h2>
+
+<hr />
+<h3 class="text-center text-danger" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Are You Sure You Want To Delete This User?</h3>
+
+<section style="display: flex; justify-content: center; margin-left: 20%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayName("Movie ID: ")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.movieID)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayName("Movie Name: ")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.movieName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayName("Movies Poster: ")
+            </dt>
+            <dd class="col-sm-10">
+                <img src=@Model.moviePoster alt="Alternate Text" width="200" height="400" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayName("Movies Genre: ")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.movieGenres.categoryName)
+            </dd>
+            
+        </dl>
+        <form asp-action="Delete" style="margin-bottom:5%">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a href="../MovieDetails/@Model.movieID">Back to The Movie</a>
+        </form>
+    </div>
+</section>

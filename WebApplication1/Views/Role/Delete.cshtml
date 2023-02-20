@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.Role
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2 class="text-center" style="margin:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Delete Role</h2>
+<h3 style="margin-left: 26%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Are You Sure You Want To Delete This Role?</h3>
+<hr />
+
+<div style="display:flex; justify-content:center; margin: 2%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <div>
+        <dl class="row">
+            <dt class="col-4">
+                @Html.DisplayName("Role ID: ")
+            </dt>
+            <dd class="col-5">
+                @Html.DisplayFor(model => model.RoleID)
+            </dd>
+            <dt class="col-5">
+                @Html.DisplayName("Role Name: ")
+            </dt>
+            <dd class="col-0">
+                @Html.DisplayFor(model => model.RoleName)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+</div>

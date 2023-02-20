@@ -1,0 +1,70 @@
+﻿@model WebApplication1.Models.RegistrationModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<body>
+
+    <div class="wrapper">
+        <main class="login-register-page">
+            <div class="container">
+
+
+                <div class="small-dialog login-register">
+
+                    @*===== Start of Signin wrapper =====*@
+                    <div class="signin-wrapper">
+                        <div class="small-dialog-headline">
+                            <h4 class="text-center">Sign Up</h4>
+                        </div>
+
+                        <div class="small-dialog-content">
+                            @*Start of Login form*@
+                            <form asp-action="Register">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="email" class="control-label"></label>
+                                    <input asp-for="email" class="form-control" />
+                                    <span asp-validation-for="email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="userName" class="control-label"></label>
+                                    <input asp-for="userName" class="form-control" />
+                                    <span asp-validation-for="userName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="password" class="control-label"></label>
+                                    <input asp-for="password" class="form-control" />
+                                    <span asp-validation-for="password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="confirmPassword" class="control-label"></label>
+                                    <input asp-for="confirmPassword" class="form-control" />
+                                    <span asp-validation-for="confirmPassword" class="text-danger"></span>
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="submit" value="Register" class="btn btn-main btn-effect nomargin" />
+                                </div>
+                            </form>
+
+                            <div class="bottom-links">
+                                <span>
+                                    Already have an account?
+                                    <a href="../Login">Sign in</a>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ===== End of Signin wrapper ===== -->
+                </div>
+                <!-- =============== END OF LOGIN & REGISTER POPUP =============== -->
+            </div>
+        </main>
+    </div>
+    <!-- =============== END OF WRAPPER =============== -->
+
+</body>
+

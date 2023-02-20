@@ -1,0 +1,63 @@
+﻿@model WebApplication1.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<body>
+
+    <div class="wrapper">
+        <main class="login-register-page">
+            <div class="container">
+
+                <div class="small-dialog login-register">
+                    <!-- ===== Start of Signin wrapper ===== -->
+                    <div class="signin-wrapper">
+                        <div class="small-dialog-headline">
+                            <h4 class="text-center">Sign in</h4>
+                        </div>
+
+                        <div class="small-dialog-content">
+                            <!-- Start of Login form -->
+                            <form id="cariera_login" method="post">
+                                <p class="status"></p>
+
+                                <div class="form-group">
+                                    <label asp-for="email" class="control-label"></label>
+                                    <input asp-for="email" placeholder="Enter Your Email" class="form-control" />
+                                    <span asp-validation-for="email" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="password" class="control-label"></label>
+                                    <input asp-for="password" type="password" placeholder="Enter Your Password" class="form-control" />
+                                    <span asp-validation-for="password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <input type="submit" value="Login" class="btn btn-main btn-effect nomargin" />
+                                </div>
+                            </form>
+                            <!-- End of Login form -->
+
+                            <div class="bottom-links">
+                                <span>
+                                    Not a member?
+                                    <a href="../Register">Sign Up</a>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ===== End of Signin wrapper ===== -->
+                </div>
+                <!-- =============== END OF LOGIN & REGISTER POPUP =============== -->
+
+            </div>
+        </main>
+    </div>
+    <!-- =============== END OF WRAPPER =============== -->
+
+</body>
+

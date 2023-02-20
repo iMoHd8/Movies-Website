@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication1.Models.Role>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center" style="margin:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Roles</h2>
+
+<p>
+    <div style="text-align:end">
+        <a asp-controller="Role" asp-action="Create" class="btn d-block mr-0 ml-auto embed-responsive-item" style="letter-spacing:20px; background-color:mediumpurple;">Add New Role</a>
+    </div>
+</p>
+
+<center style="margin: 4%; text-align-last: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <table class="table table-responsive-md table-bordered table-hover table-striped" style="width:80%;">
+        <thead>
+            <tr>
+                <th>
+                    <strong>Role ID</strong>
+                </th>
+                <th>
+                    <strong>Role Name</strong>
+                </th>
+                <th>
+                    <strong>Action</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoleID)
+                    </td>
+                    <td>
+                        <strong>@Html.DisplayFor(modelItem => item.RoleName)</strong>
+                    </td>
+                    <td>
+                        <div class="m-n1">
+                            <a asp-controller="Role" asp-action="Edit" asp-route-id=@item.RoleID class="btn" style="background-color:darkkhaki;">Edit</a>
+                            <a asp-controller="Role" asp-action="Delete" asp-route-id=@item.RoleID class="btn btn-danger">Delete</a>
+                        </div>
+                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>

@@ -1,0 +1,302 @@
+﻿@inject WebApplication1.Helper.SessionManager session;
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- ===== Mobile viewport optimized ===== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+
+    <!-- ===== Website Title ===== -->
+    <title>Top Watch - Movies, Series</title>
+
+    <!-- ===== Favicon & Different size apple touch icons ===== -->
+    <link rel="shortcut icon" href="~/assets/images/pngegg.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="~/assets/images/pngegg.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/images/Logo Cinema.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/assets/images/Logo Cinema.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/assets/images/Logo Cinema.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="~/assets/images/Logo Cinema.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/images/Logo Cinema.png">
+    <link rel="icon" sizes="192x192" href="~/assets/images/Logo Cinema.png">
+    <link rel="icon" sizes="128x128" href="~/assets/images/Logo Cinema.png">
+
+    <!-- ===== Google Fonts ===== -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+
+    <!-- ===== CSS links ===== -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/revolution/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/jquery.mmenu.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/responsive.css">
+</head>
+
+<body>
+
+    <!-- =============== START OF PRELOADER =============== -->
+    <div class="loading">
+        <div class="loading-inner">
+            <div class="loading-effect">
+                <div class="object"></div>
+            </div>
+        </div>
+    </div>
+    <!-- =============== END OF PRELOADER =============== -->
+    <!-- =============== START OF RESPONSIVE - MAIN NAV =============== -->
+    <nav id="main-mobile-nav"></nav>
+    <!-- =============== END OF RESPONSIVE - MAIN NAV =============== -->
+    <!-- =============== START OF WRAPPER =============== -->
+    <div class="wrapper">
+
+
+        <!-- =============== START OF HEADER NAVIGATION =============== -->
+        <!-- Insert the class "sticky" in the header if you want a sticky header -->
+        <header class="header header-fixed header-transparent text-white">
+            <div class="container-fluid">
+
+                <!-- ====== Start of Navbar ====== -->
+                <nav class="navbar navbar-expand-lg">
+
+                    <a class="navbar-brand" href="../Movie/Home">
+                        <!-- INSERT YOUR WHITE LOGO HERE -->
+                        <strong style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:27px; margin-left:50px">Top Watch</strong>
+                    </a>
+
+                    <!-- Login Button on Responsive -->
+                    <a href="#login-register-popup" class="login-mobile-btn popup-with-zoom-anim"><i class="icon-user"></i></a>
+
+                    <button id="mobile-nav-toggler" class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+
+                    <!-- ====== Start of #main-nav ====== -->
+                    <div class="navbar-collapse" id="main-nav">
+
+                        <!-- ====== Start of Main Menu ====== -->
+                        <ul class="navbar-nav mx-auto" id="main-menu">
+
+                            <!-- Menu Item -->
+                            <li class="nav-item">
+                                <a asp-controller="Movie" asp-action="Home" class="nav-link" aria-haspopup="true" aria-expanded="true">Home</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="User" asp-action="Index" class="nav-link" aria-haspopup="true" aria-expanded="true">Users</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="Role" asp-action="Index" class="nav-link" aria-haspopup="true" aria-expanded="true">Role</a>
+                            </li>
+
+                        </ul>
+                        <!-- ====== End of Main Menu ====== -->
+                        <ul class="navbar-nav extra-nav">
+
+                            <li class="nav-item m-auto">
+                                Welcome<br /><i class="icon-user">@session.Email</i>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!-- ====== End of #main-nav ====== -->
+                </nav>
+                <!-- ====== End of Navbar ====== -->
+
+            </div>
+        </header>
+        <!-- =============== END OF HEADER NAVIGATION =============== -->
+        <!-- =============== START OF SLIDER REVOLUTION SECTION =============== -->
+        <section id="slider" class="full-slider">
+            <div class="rev-slider-wrapper fullwidthbanner-container overlay-gradient">
+                <!-- Start REVOLUTION SLIDER 5.4.1 fullwidth mode -->
+                <div id="fullwidth-slider" class="rev_slider fullwidthabanner" style="display:none" data-version="5.4.1">
+                    <ul>
+                        <!-- ===== SLIDE NR. 2 ===== -->
+                        <li data-transition="fade"
+                            data-slotamount="7"
+                            data-easein="default"
+                            data-easeout="default"
+                            data-masterspeed="2000">
+                            <!-- MAIN IMAGE -->
+                            <img src="~/assets/images/slider/pirates.jpg"
+                                 alt="Image"
+                                 title="slider-bg"
+                                 data-bgposition="center top"
+                                 data-bgfit="cover"
+                                 data-bgrepeat="no-repeat"
+                                 data-bgparallax="10"
+                                 class="rev-slidebg"
+                                 data-no-retina="">
+                            <!-- LAYER NR. 1 -->
+                            <div class="tp-caption tp-resizeme"
+                                 data-x="center"
+                                 data-hoffset=""
+                                 data-y="middle"
+                                 data-voffset="['-30','-30','-30','-30']"
+                                 data-responsive_offset="on"
+                                 data-fontsize="['60','50','40','30']"
+                                 data-lineheight="['60','50','40','30']"
+                                 data-whitespace="nowrap"
+                                 data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 5; color: #fff; font-weight: 900;">
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End REVOLUTION SLIDER 5.4.1 fullwidth mode -->
+            </div>
+            <!-- ===== END OF REV SLIDER WRAPPER ===== -->
+        </section>
+
+
+
+
+        @RenderBody()
+        @RenderSection("scripts", required: false)
+
+
+
+
+
+        <!-- =============== START OF FOOTER =============== -->
+        <footer class="footer1 bg-dark">
+
+            <!-- ===== START OF FOOTER WIDGET AREA ===== -->
+            <div class="footer-widget-area ptb100" style="margin-left:25%">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Start of Widget 1 -->
+                        <div class="col-lg-3 col-md-5 col-sm-10">
+                            <div class="widget widget-about">
+                                Top Watch
+                                <!-- INSERT YOUR WHITE LOGO HERE -->
+                                <img src="~/assets/images/pngegg.png" alt="white logo" class="logo-white">
+                                <p class="nomargin">Movies Project</p>
+                            </div>
+                        </div>
+                        <!-- End of Widget 1 -->
+                        <!-- Start of Widget 2 -->
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="widget widget-links">
+                                <h4 class="widget-title">Useful links</h4>
+
+                                <ul class="general-listing">
+                                    <li><a href="../Home/Index">about Top Watch</a></li>
+                                    <li><a href="#">Trending Movies</a></li>
+                                    <li><a href="#">Latest Movies</a></li>
+                                    <li><a href="#">watch list</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <!-- End of Widget 2 -->
+                        <!-- Start of Widget 3 -->
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="widget widget-social">
+                                <h4 class="widget-title">follow us</h4>
+                                <!-- Start of Social Buttons -->
+                                <ul class="social-btns">
+                                    <!-- Social Media -->
+                                    <li>
+                                        <a href="#" class="social-btn-roll facebook">
+                                            <div class="social-btn-roll-icons">
+                                                <i class="social-btn-roll-icon fa fa-facebook"></i>
+                                                <i class="social-btn-roll-icon fa fa-facebook"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <!-- Social Media -->
+                                    <li>
+                                        <a href="#" class="social-btn-roll twitter">
+                                            <div class="social-btn-roll-icons">
+                                                <i class="social-btn-roll-icon fa fa-twitter"></i>
+                                                <i class="social-btn-roll-icon fa fa-twitter"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <!-- Social Media -->
+                                    <li>
+                                        <a href="#" class="social-btn-roll google-plus">
+                                            <div class="social-btn-roll-icons">
+                                                <i class="social-btn-roll-icon fa fa-google-plus"></i>
+                                                <i class="social-btn-roll-icon fa fa-google-plus"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <!-- Social Media -->
+                                    <li>
+                                        <a href="#" class="social-btn-roll instagram">
+                                            <div class="social-btn-roll-icons">
+                                                <i class="social-btn-roll-icon fa fa-instagram"></i>
+                                                <i class="social-btn-roll-icon fa fa-instagram"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- End of Social Buttons -->
+                            </div>
+                        </div>
+                        <!-- End of Widget 3 -->
+                    </div>
+                </div>
+            </div>
+            <!-- ===== END OF FOOTER WIDGET AREA ===== -->
+        </footer>
+        <!-- =============== END OF FOOTER =============== -->
+
+    </div>
+    <!-- =============== END OF WRAPPER =============== -->
+
+    
+    <!-- ===== All Javascript at the bottom of the page for faster page loading ===== -->
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.ajaxchimp.js"></script>
+    <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/js/jquery.mmenu.js"></script>
+    <script src="~/assets/js/jquery.inview.min.js"></script>
+    <script src="~/assets/js/jquery.countTo.min.js"></script>
+    <script src="~/assets/js/jquery.countdown.min.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/assets/js/isotope.pkgd.min.js"></script>
+    <script src="~/assets/js/headroom.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+
+    <!-- ===== Slider Revolution core JavaScript files ===== -->
+    <script type="text/javascript" src="~/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- ===== Slider Revolution extensioncripts ===== -->
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.MoviesCategories
+
+@{
+    ViewData["Title"] = "CategoryDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center" style="margin:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Delete Category</h2>
+<h3 style="margin-left: 26%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Are You Sure You Want To Delete This Category?</h3>
+<hr />
+
+<div style="display:flex; justify-content:center; margin: 2%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <div>
+        <dl class="row">
+            <dt class="col-4">
+                @Html.DisplayName("Category ID: ")
+            </dt>
+            <dd class="col-5">
+                @Html.DisplayFor(model => model.categoryID)
+            </dd>
+            <dt class="col-5">
+                @Html.DisplayName("Category Name: ")
+            </dt>
+            <dd class="col-0">
+                @Html.DisplayFor(model => model.categoryName)
+            </dd>
+        </dl>
+        <form asp-action="CategoryDelete">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="CategoriesHome">Back to List</a>
+        </form>
+    </div>
+</div>

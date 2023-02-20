@@ -1,0 +1,88 @@
+﻿@model IEnumerable<WebApplication1.Models.Member>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center" style="margin:20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Users</h2>
+
+<center>
+    <form asp-action="Index" method="post">
+        <div class="input-group-append shadow" style="width:50%" >
+            <input autofocus type="search" id="keyword" name="keyword" value="@ViewBag.keyword" class="form-control" placeholder="Enter a Name or Email for Searching..." aria-label="Enter a Name or Email for Searching..." aria-describedby="basic-addon2">
+            <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    </form>  
+</center>
+
+<p>
+    <div>
+        <a asp-action="Create" class="btn Photography-ImageHover2 d-block mr-0 ml-auto embed-responsive-item" style="letter-spacing:20px; background-color:mediumpurple;">Add New Member</a>
+    </div>
+</p>
+
+@if(Model.Count()>0)
+{
+<section style="display: flex; justify-content: center; text-align-last:center; margin: 4%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+    <table class="table table-responsive-md table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("ID")
+                </th>
+                <th>
+                    @Html.DisplayName("User Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Password")
+                </th>
+                <th>
+                    @Html.DisplayName("E-Mail")
+                </th>
+                <th>
+                    @Html.DisplayName("Role")
+                </th>
+                <th>
+                    @Html.DisplayName("Action")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userId)
+                    </td>
+                    <td>
+                        <strong>@Html.DisplayFor(modelItem => item.name)</strong>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => @item.password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.role.RoleName)
+                    </td>
+                    <td>
+                        <div class="m-n1">
+                            <a asp-controller="User" asp-action="Edit" asp-route-id=@item.userId class="btn" style="background-color:darkkhaki;">Edit</a>
+                            <a asp-controller="User" asp-action="Details" asp-route-id=@item.userId class="btn btn-light">Details</a>
+                            <a asp-controller="User" asp-action="Delete" asp-route-id=@item.userId class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+}
+else
+{
+    <div class="text-center h3 text-uppercase" >
+        <h2 class="text-danger"> Sorry! <br/> There's No Member Yet... </h2>
+    </div>
+}
